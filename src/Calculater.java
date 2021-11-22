@@ -260,4 +260,3 @@ public class Calculater {
         return result;
     }
 }
-
