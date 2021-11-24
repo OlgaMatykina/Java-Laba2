@@ -53,7 +53,7 @@ public class Calculater {
             return;
         }
         if (isDelimiter(exp.charAt(exp_index))) {
-            if(exp_index==exp.length()-1) throw new Exception(SYNTAX);
+            if(exp_index==exp.length()-1 && exp.charAt(exp_index)!=')') throw new Exception(SYNTAX);
             else {
                 cur_char = Character.toString(exp.charAt(exp_index));
                 exp_index++;
