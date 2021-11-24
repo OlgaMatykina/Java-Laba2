@@ -27,20 +27,14 @@ public class Calculater {
     private int cur_char_type;
     private int pre_char_type;
 
-    public Calculater() {
-        exp_index = 0;
-        pre_char="";
-        pre_char_type=NONE;
-        cur_char_type = NONE;
-        cur_char = "";
-    }
 
 
     /**
      * analyses current character in expression
      */
     private void getCurrentCharacter() throws Exception{
-
+        cur_char = "";
+        cur_char_type = NONE;
         if (exp_index == exp.length()) {
             pre_char=cur_char;
             cur_char = end_of_exp;
@@ -121,7 +115,9 @@ public class Calculater {
         Stack<String> operators = new Stack<String>();
         ArrayList<String> postExp = new ArrayList<String>();
         exp = str;
-
+        exp_index = 0;
+        pre_char="";
+        pre_char_type=NONE;
 
         getCurrentCharacter();
         if (cur_char.equals(end_of_exp))
@@ -201,7 +197,7 @@ public class Calculater {
     public BigDecimal calculate (String str) throws Exception{
         ArrayList<String> postExp = infixToPostfix(str);
 
-        //  System.out.println(toString(postExp));
+         // System.out.println(toString(postExp));
 
         Scanner scanner = new Scanner(System.in);
         BigDecimal op1, op2;
